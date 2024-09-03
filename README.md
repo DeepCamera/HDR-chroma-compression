@@ -11,8 +11,6 @@ The code is heavily based on the seminal generative adversarial network (GAN) [p
 
 
 
-
-
 ## Getting Started
 
 ### Installation
@@ -34,7 +32,7 @@ pip install -r requirements.txt
 ```
 
 ### Training
-Download our [dataset](##dataset) and place all folders (train*, val*, test*) in `./datasets/hdr/` folder. Train a model using:
+Download our [dataset](##dataset) and place all folders (train*, val*, test*) in `./datasets/hdr/`. Train a model using:
 ```bash
 python train.py --dataroot ./datasets/hdr --name hdr_exp1
 ```
@@ -51,8 +49,6 @@ At a minimum, you need to specify the dataset path (`--dataroot`). It is also su
 
 
 Please refer to the [pix2pix implementation](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) for additional resources on training, testing and troubleshooting.
-
-
 
 
 
@@ -176,12 +172,8 @@ HDR images were captured by the authors or collected from different publicly ava
 
 
 
-
-
 ## Trained weights
 Download our pre-trained model [weights](https://gofile.me/74Y5j/siBbONZ1l).
-
-
 
 
 
