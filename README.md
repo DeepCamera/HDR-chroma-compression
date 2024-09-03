@@ -20,7 +20,7 @@ The code is heavily based on the seminal generative adversarial network (GAN) [p
 ### Installation
 Clone this repo:
 ```bash
-git clone https://github.com.........................
+git clone https://github.com/DeepCamera/HDR-chroma-compression
 cd HDR-chroma-compression
 ```
 
