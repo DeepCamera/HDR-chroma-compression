@@ -1,8 +1,6 @@
 
 <img src='figures/main.png' align="center">
 
-<br>
-
 # Deep chroma compression of tone-mapped images
 
 High dynamic range (HDR) imaging is an important technology targeting the acquisition, display, and storage of high-fidelity images that contain a considerably wider luminance spectrum than conventional images. Due to the limited capacity of traditional monitors to display HDR images, range reduction techniques are employed to generate standard dynamic range (SDR) images that can be accurately reproduced. However, these techniques correct primarily the luminance, but subsequent color adjustment (chroma compression) may be performed to remove any remaining chromatic distortions or color clipping artifacts (see figure above). While multiple analytic techniques exist for chroma compression, this code provides the first deep learning-based method for the task.
@@ -64,7 +62,7 @@ Please refer to the [pix2pix implementation](https://github.com/junyanz/pytorch-
 
 <br>
 
-Download the extensive [dataset](https://gofile.me/74Y5j/WVwAkJE9q) used in our study. The dataset contains 1467 HDR images at a resolution of 512×512 pixels, covering a diverse range of scenes and lighting conditions. HDR images were tone-mapped using 29 different oparators to create a total of 42543 SDR images for improving the generalization capabilities of the trained models (see PAPER....................... FOR THE FULL LIST). We also provide the chroma-compressed versions produced using the conventional method by [Šikudová et al](https://ieeexplore.ieee.org/document/7325187). Pairs of tone-mapped and chroma-compressed SDR images were split into training, validation, and test subsets at an 8:1:1 ratio, and are available for direct usage with the code. For example, folder `trainA` includes the tone-mapped images, `trainB` the chroma-compressed images, and `train` their concatenation as required by the code.
+Download the extensive [dataset](https://gofile.me/74Y5j/WVwAkJE9q) used in our study. The dataset contains 1467 HDR images at a resolution of 512×512 pixels, covering a diverse range of scenes and lighting conditions. HDR images were tone-mapped using 29 different oparators to create a total of 42543 SDR images for improving the generalization capabilities of the trained models (see (tbd)............... for the full list of operators). We also provide the chroma-compressed versions produced using the conventional method by [Šikudová et al](https://ieeexplore.ieee.org/document/7325187). Pairs of tone-mapped and chroma-compressed SDR images were split into training, validation, and test subsets at an 8:1:1 ratio, and are available for direct usage with the code. For example, folder `trainA` includes the tone-mapped images, `trainB` the chroma-compressed images, and `train` their concatenation as required by the code.
 
 HDR images were captured by the authors or collected from different publicly available HDR repositories, which we cite below:
 
@@ -192,7 +190,7 @@ If you use either of the code, dataset, or pre-trained model weights for your re
 ```
 @article{
 
-...................................
+(tbd)....................
 
 }
 ```
