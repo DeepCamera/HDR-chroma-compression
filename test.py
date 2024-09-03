@@ -12,8 +12,6 @@ It then runs inference for '--num_test' images and save results to an HTML file.
 
 Example:
     python test.py --dataroot ./datasets/hdr --name hdr_exp1 --num_test 100
-
-See further information at: ..................README.md.................... #######################################
 """
 import os
 from options.test_options import TestOptions
@@ -21,10 +19,9 @@ from data import create_dataset
 from models import create_model
 from util.visualizer import save_images
 from util import html
-import time  # XM 11/05/2023
-import csv  # XM 11/05/2023
-import torch  # XM 11/05/2023
-
+import time
+import csv
+import torch
 
 if __name__ == '__main__':
     opt = TestOptions().parse()  # get test options
@@ -45,14 +42,9 @@ if __name__ == '__main__':
     print('creating web directory', web_dir)
     webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch))
 
-    # test with eval mode. This only affects layers like batchnorm and dropout.
-    # For [pix2pix]: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
-    # For [CycleGAN]: It should not affect CycleGAN as CycleGAN uses instancenorm without dropout.
-
-    file = open(os.path.join(opt.results_dir, opt.name, 'time_cpu.csv'), 'w')  # XM 11/05/2023
-    file2 = open(os.path.join(opt.results_dir, opt.name, 'time_cuda.csv'), 'w')  # XM 11/05/2023
-    t_start2 = torch.cuda.Event(enable_timing=True)
-    t_stop2 = torch.cuda.Event(enable_timing=True)
+    timefile = open(os.path.join(opt.results_dir, opt.name, 'time_cuda.csv'), 'w')
+    t_start = torch.cuda.Event(enable_timing=True)
+    t_stop = torch.cuda.Event(enable_timing=True)
 
     if opt.eval:
         model.eval()
@@ -60,21 +52,17 @@ if __name__ == '__main__':
         if i >= opt.num_test:  # only apply our model to opt.num_test images.
             break
 
-        t_start = time.perf_counter()  # XM 11/05/2023
-        t_start2.record()
+        t_start.record()
         
         model.set_input(data)  # unpack data from data loader
         model.test()           # run inference
         visuals = model.get_current_visuals()  # get image results
 
-        t_stop = time.perf_counter()  # XM 11/05/2023
-        t_stop2.record()
+        t_stop.record()
         torch.cuda.synchronize()
 
-        file.write(str(t_stop - t_start))
-        file.write("\n")
-        file2.write(str(t_start2.elapsed_time(t_stop2) / 1000))
-        file2.write("\n")
+        timefile.write(str(t_start.elapsed_time(t_stop) / 1000))
+        timefile.write("\n")
 
         img_path = model.get_image_paths()     # get image paths
         if i % 5 == 0:  # save images to an HTML file
@@ -82,5 +70,5 @@ if __name__ == '__main__':
         save_images(webpage, visuals, img_path, aspect_ratio=opt.aspect_ratio, width=opt.display_winsize)
     webpage.save()  # save the HTML
 
-    file.close()  # XM 11/05/2023
-    file2.close()  # XM 11/05/2023
+    timefile.close()
+    

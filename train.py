@@ -11,8 +11,6 @@ The script supports continue/resume training. Use '--continue_train' to resume y
 
 Example:
     python train.py --dataroot ./datasets/hdr --name hdr_exp1
-
-See further information at: ..................README.md.................... #######################################
 """
 import time
 from options.train_options import TrainOptions
