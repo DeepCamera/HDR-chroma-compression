@@ -7,3 +7,6 @@ results/
 
 # files
 CLUSTER_SCRIPT.sh
+*/**/__pycache__/
+*/*.pyc
+*/**/*.pyc

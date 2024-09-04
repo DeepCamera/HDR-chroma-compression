@@ -1,16 +1,13 @@
+"""
+Usage during model training: 
+from custom_losses import HueL1Loss, HueL2Loss, HueL1Loss2, HueL2Loss2
+loss_fn = HueL1Loss()
+"""
 import torch
 import torch.nn as nn
 from matplotlib.colors import rgb_to_hsv
 from skimage.color import rgb2lab, lab2lch
 import numpy as np
-
-"""
-Usage during model training: 
-from custom_losses import HueL1Loss, HueL2Loss, HueL1Loss2, HueL2Loss2
-loss_fn = HueL1Loss()
-
-Last Modified 21 November 2023 by Xenios Milidonis, Copyright (c) 2023 CYENS Centre of Excellence
-"""
 
 class HueL1Loss(nn.Module):
     def __init__(self):
