@@ -58,7 +58,7 @@ Please refer to the [pix2pix implementation](https://github.com/junyanz/pytorch-
 
 <br>
 
-Download the extensive [dataset](https://gofile.me/74Y5j/WVwAkJE9q) used in our study. The dataset contains 1467 HDR images at a resolution of 512×512 pixels, covering a diverse range of scenes and lighting conditions. HDR images were tone-mapped using 29 different oparators to create a total of 42543 SDR images for improving the generalization capabilities of the trained models (see (TBD) for the full list of operators). We also provide the chroma-compressed versions produced using the conventional method by [Šikudová et al](https://ieeexplore.ieee.org/document/7325187). Pairs of tone-mapped and chroma-compressed SDR images were split into training, validation, and test subsets at an 8:1:1 ratio, and are available for direct usage with the code. For example, folder `trainA` includes the tone-mapped images, `trainB` the chroma-compressed images, and `train` their concatenation as required by the code.
+Download the extensive [dataset](https://gofile.me/74Y5j/WVwAkJE9q) used in our study. The dataset contains 1467 HDR images at a resolution of 512×512 pixels, covering a diverse range of scenes and lighting conditions. HDR images were tone-mapped using 29 different oparators to create a total of 42543 SDR images for improving the generalization capabilities of the trained models (see our [paper](https://www.arxiv.org/abs/2409.16032) for the full list of operators). We also provide the chroma-compressed versions produced using the conventional method by [Šikudová et al](https://ieeexplore.ieee.org/document/7325187). Pairs of tone-mapped and chroma-compressed SDR images were split into training, validation, and test subsets at an 8:1:1 ratio, and are available for direct usage with the code. For example, folder `trainA` includes the tone-mapped images, `trainB` the chroma-compressed images, and `train` their concatenation as required by the code.
 
 HDR images were captured by the authors or collected from different publicly available HDR repositories, which we cite below:
 
@@ -178,12 +178,16 @@ Download our pre-trained model [weights](https://gofile.me/74Y5j/siBbONZ1l).
 
 
 ## Citation
-If you use either of the code, dataset, or pre-trained model weights for your research, please cite our paper:
+If you use either of the code, dataset, or pre-trained model weights for your research, please cite our [paper](https://www.arxiv.org/abs/2409.16032):
 ```
-@article{
-
-(TBD)
-
+@misc{Milidonis2024,
+      title={Deep chroma compression of tone-mapped images}, 
+      author={Xenios Milidonis and Francesco Banterle and Alessandro Artusi},
+      year={2024},
+      eprint={2409.16032},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2409.16032}, 
 }
 ```
 Please also cite the [pix2pix](https://ieeexplore.ieee.org/document/8100115) paper if you use the code or pre-trained model weights:
