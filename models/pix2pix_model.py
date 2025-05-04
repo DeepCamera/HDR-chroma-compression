@@ -1,7 +1,7 @@
 import torch
 from .base_model import BaseModel
 from . import networks
-from .custom_losses import HueL1Loss, HueL2Loss, HueL1Loss2, HueL2Loss2
+from .custom_losses import HueL1Loss, HueL2Loss
 
 class Pix2PixModel(BaseModel):
     """ This class implements the pix2pix model, for learning a mapping from input images to output images given paired data.
@@ -55,7 +55,7 @@ class Pix2PixModel(BaseModel):
             # define loss functions
             self.criterionGAN = networks.GANLoss(opt.gan_mode).to(self.device)
             self.criterionL1 = torch.nn.L1Loss()
-            self.criterionHue = HueL2Loss2()  # other custom hue-based losses: HueL1Loss, HueL2Loss, HueL1Loss2, HueL2Loss2
+            self.criterionHue = HueL2Loss()  # other custom hue-based losses: HueL1Loss, HueL2Loss
             # initialize optimizers; schedulers will be automatically created by function <BaseModel.setup>.
             self.optimizer_G = torch.optim.Adam(self.netG.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
             self.optimizer_D = torch.optim.Adam(self.netD.parameters(), lr=opt.lr, betas=(opt.beta1, 0.999))
