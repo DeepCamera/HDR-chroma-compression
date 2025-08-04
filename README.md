@@ -178,16 +178,20 @@ Download our pre-trained model [weights](https://gofile.me/74Y5j/siBbONZ1l).
 
 
 ## Citation
-If you use either of the code, dataset, or pre-trained model weights for your research, please cite our [paper](https://www.arxiv.org/abs/2409.16032):
+If you use either of the code, dataset, or pre-trained model weights for your research, please cite our [paper](https://dl.acm.org/doi/abs/10.1145/3744925):
 ```
-@misc{Milidonis2024,
-      title={Deep chroma compression of tone-mapped images}, 
-      author={Xenios Milidonis and Francesco Banterle and Alessandro Artusi},
-      year={2024},
-      eprint={2409.16032},
-      archivePrefix={arXiv},
-      primaryClass={eess.IV},
-      url={https://arxiv.org/abs/2409.16032}, 
+@article{Milidonis2025,
+  author = {Milidonis, Xenios and Artusi, Alessandro and Banterle, Francesco},
+  title = {Deep Chroma Compression of Tone-Mapped Images},
+  year = {2025},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  issn = {1551-6857},
+  url = {https://doi.org/10.1145/3744925},
+  doi = {10.1145/3744925},
+  journal = {ACM Trans. Multimedia Comput. Commun. Appl.},
+  month = jul,
+  keywords = {High Dynamic Range, Deep Learning, Tone Mapping, Chroma Compression, Generative Adversarial Networks}
 }
 ```
 Please also cite the [pix2pix](https://ieeexplore.ieee.org/document/8100115) paper if you use the code or pre-trained model weights:
